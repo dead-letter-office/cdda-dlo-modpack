@@ -25,6 +25,10 @@ Also includes an 'Add Latch to Door' construction recipe to turn an ordinary met
 
 <img src="https://github.com/user-attachments/assets/913e1aa7-e494-44a6-880b-f47937bce423" width="300" />  
 
+# Support
+
+These mods are provided as-is without active support.
+
 [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
 [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
