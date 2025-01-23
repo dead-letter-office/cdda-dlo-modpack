@@ -1,0 +1,48 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "lockable_doors",
+    "name": "Lockable Doors",
+    "authors": [ "dlo" ],
+    "maintainers": [ "dlo" ],
+    "description": "(C)losing a door that has a mechanical lock locks it with the deadbolt. Don't lock yourself out.",
+    "category": "misc_additions",
+    "dependencies": [ "dda" ],
+    "obsolete": false
+  },
+  { "type": "terrain", "id": "t_door_c",                "copy-from": "t_door_c",              "close": "t_door_locked" },
+  { "type": "terrain", "id": "t_door_locked",           "copy-from": "t_door_locked",         "open":  "t_door_c", 
+    "prying": {"result": "t_door_o", "message": "You pry open the door.", "prying_data": { "difficulty": 6, "prying_level": 2, "noisy": true, "failure": "You pry, but can't pry open the door." } } 
+  },
+  { "type": "terrain", "id": "t_rdoor_c",               "copy-from": "t_rdoor_c",             "close": "t_rdoor_locked"},
+  { "type": "terrain", "id": "t_rdoor_locked",          "copy-from": "t_rdoor_c",             "open":  "t_rdoor_c", "name": "Locked reinforced wood door", "extend": { "flags": [ "LOCKED", "OPENCLOSE_INSIDE", "PICKABLE" ] }, 
+    "prying": {"result": "t_rdoor_o", "message": "You pry open the door.", "prying_data": { "difficulty": 7, "prying_level": 2, "noisy": true, "failure": "You pry, but can't pry open the door." } } 
+  },
+  { "type": "terrain", "id": "t_door_c_peep",           "copy-from": "t_door_c_peep",         "close": "t_door_locked_peep"},
+  { "type": "terrain", "id": "t_door_locked_peep",      "copy-from": "t_door_locked_peep",    "open":  "t_door_c_peep",
+    "prying": {"result": "t_door_o_peep", "message": "You pry open the door.", "prying_data": { "difficulty": 7, "prying_level": 2, "noisy": true, "failure": "You pry, but can't pry open the door." } } 
+  },
+  { "type": "terrain", "id": "t_door_metal_pickable",   "copy-from": "t_door_metal_pickable", "open":  "t_door_metal_pickable_c", 
+    "prying": { "result": "t_door_metal_pickable_o", "message": "You pry open the metal door.", "prying_data": { "difficulty": 8, "prying_level": 4, "noisy": true, "failure": "The metal door is too thick." } },
+    "oxytorch": { "result": "t_mdoor_frame", "duration": "14 seconds", "byproducts": [ { "item": "steel_plate", "count": [ 0, 1 ] }, { "item": "steel_chunk", "count": [ 3, 8 ] } ] }
+  },
+  { "type": "terrain", "id": "t_door_metal_pickable_c", "copy-from": "t_door_metal_c",        "open":  "t_door_metal_pickable_o", "close": "t_door_metal_pickable" },
+  { "type": "terrain", "id": "t_door_metal_pickable_o", "copy-from": "t_door_metal_o",        "close": "t_door_metal_pickable_c" },
+  {
+    "type": "construction_group",
+    "id": "add_door_latch",
+    "name": "Add Latch to Door"
+  },  
+  {
+    "type": "construction",
+    "id": "constr_door_latch",
+    "group": "add_door_latch",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ] ],
+    "time": "30 m",
+    "qualities": [ [ { "id": "DRILL", "level": 2 } ], [ { "id": "WRENCH", "level": 2 } ], [ { "id": "SAW_M", "level": 2 } ] ],
+    "components": [ [ [ "scrap", 5 ] ], [ [ "nuts_bolts", 8 ] ] ],
+    "pre_terrain": "t_door_metal_o",
+    "post_terrain": "t_door_metal_pickable_c"
+  }  
+]
