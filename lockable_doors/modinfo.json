@@ -3,8 +3,8 @@
     "type": "MOD_INFO",
     "id": "lockable_doors",
     "name": "Lockable Doors",
-    "authors": [ "dlo" ],
-    "maintainers": [ "dlo" ],
+    "authors": [ "dead-letter-office" ],
+    "maintainers": [ "nobody" ],
     "description": "(C)losing a door that has a mechanical lock locks it with the deadbolt. Don't lock yourself out.",
     "category": "misc_additions",
     "dependencies": [ "dda" ],
@@ -16,7 +16,8 @@
   },
   { "type": "terrain", "id": "t_rdoor_c",               "copy-from": "t_rdoor_c",             "close": "t_rdoor_locked"},
   { "type": "terrain", "id": "t_rdoor_locked",          "copy-from": "t_rdoor_c",             "open":  "t_rdoor_c", "name": "Locked reinforced wood door", "extend": { "flags": [ "LOCKED", "OPENCLOSE_INSIDE", "PICKABLE" ] }, 
-    "prying": {"result": "t_rdoor_o", "message": "You pry open the door.", "prying_data": { "difficulty": 7, "prying_level": 2, "noisy": true, "failure": "You pry, but can't pry open the door." } } 
+    "prying": {"result": "t_rdoor_o", "message": "You pry open the door.", "prying_data": { "difficulty": 7, "prying_level": 2, "noisy": true, "failure": "You pry, but can't pry open the door." } },
+    "lockpick_result": "t_rdoor_c", "lockpick_message": "With a satisfying click, the lock on the door opens.", "examine_action": "locked_object"
   },
   { "type": "terrain", "id": "t_door_c_peep",           "copy-from": "t_door_c_peep",         "close": "t_door_locked_peep"},
   { "type": "terrain", "id": "t_door_locked_peep",      "copy-from": "t_door_locked_peep",    "open":  "t_door_c_peep",
