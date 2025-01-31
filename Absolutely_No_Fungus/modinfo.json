@@ -1,0 +1,14 @@
+{
+    "type": "MOD_INFO",
+    "id": "No_Fungus",
+    "name": "Absolutely No Fungus",
+    "authors": [
+        "Killbot"
+    ],
+    "description": "Removes fungal monsters and regions from the game.",
+    "category": "monster_exclude",
+    "dependencies": [
+        "dda"
+    ],
+    "obsolete": false
+}
